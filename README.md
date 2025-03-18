@@ -98,7 +98,7 @@ Currently, all code is contained in a single file. A proper code file structure 
 
 ## 📸 Screenshots
 
-[Screenshots will be added here]
+A simple Round-Robin Scheduling algorithm based gantt chart along with the perfromance metrics.
 
 ## 🔜 Future Enhancements
 
