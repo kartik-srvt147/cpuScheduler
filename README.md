@@ -1,154 +1,130 @@
 # 🖥️ CPU Scheduler Simulator
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/cpuScheduler?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/cpuScheduler?style=social)
-![License](https://img.shields.io/badge/license-MIT-blue)
+A visual, interactive CPU scheduling algorithm simulator built with Python and Tkinter.
 
-> An interactive CPU scheduling algorithm simulator with visualizations and performance metrics.
+![GitHub](https://img.shields.io/github/license/kartik-srvt147/cpuScheduler.py)
+![Python](https://img.shields.io/badge/python-3.6+-blue.svg)
 
-![CPU Scheduler](https://github.com/yourusername/cpuScheduler/raw/main/screenshot.png)
+## 📋 Overview
+
+This application demonstrates various CPU scheduling algorithms with an intuitive graphical interface. It provides real-time visualization of process execution and detailed performance metrics to help understand the behavior of different scheduling algorithms.
 
 ## ✨ Features
 
-### Supported Scheduling Algorithms
+- **Multiple Scheduling Algorithms**:
+  - First-Come-First-Serve (FCFS)
+  - Shortest Job First (SJF)
+  - Shortest Remaining Time First (SRTF)
+  - Round Robin (with configurable time quantum)
+  - Priority Scheduling
 
-- **First-Come-First-Serve (FCFS)**  
-  Non-preemptive scheduling based on arrival time
+- **Interactive Process Management**:
+  - Add processes with customizable parameters (PID, arrival time, burst time, priority)
+  - Delete or reset process entries
+  - Dynamic process table view
 
-- **Shortest Job First (SJF)**  
-  Non-preemptive scheduling prioritizing shortest burst time
+- **Visual Representation**:
+  - Color-coded Gantt charts for process execution visualization
+  - Clear process identification and timing information
 
-- **Shortest Remaining Time First (SRTF)**  
-  Preemptive version of SJF, dynamically switching to shorter processes
+- **Comprehensive Performance Metrics**:
+  - Average waiting time
+  - Average turnaround time
+  - CPU utilization percentage
+  - Process throughput
+  - Detailed per-process statistics
 
-- **Round Robin**  
-  Time-sliced scheduling with customizable quantum value
-
-- **Priority Scheduling**  
-  Non-preemptive scheduling based on priority values
-
-### User Interface
-
-- **Intuitive Process Management**  
-  Easy-to-use controls to add, delete, and reset processes
-
-- **Real-time Visualization**  
-  Color-coded Gantt charts showing process execution timelines
-
-- **Comprehensive Metrics**  
-  Detailed statistics and performance analysis
-
-- **Modern Design**  
-  Clean UI with the ttkbootstrap "solar" theme
-
-## 🚀 Getting Started
+## 🚀 Installation & Setup
 
 ### Prerequisites
-
-- Python 3.x
-- Libraries:
-  ```
-  tkinter
-  ttkbootstrap
-  matplotlib
-  ```
+- Python 3.6+
+- tkinter
+- ttkbootstrap
+- matplotlib
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/cpuScheduler.git
-   cd cpuScheduler
+1. Clone the repository:
+   ```
+   git clone https://github.com/kartik-srvt147/cpuScheduler.py.git
+   cd cpuScheduler.py
    ```
 
-2. **Install dependencies**
-   ```bash
-   pip install matplotlib ttkbootstrap
+2. Install the required packages:
+   ```
+   pip install -r requirements.txt
    ```
 
-3. **Launch the application**
-   ```bash
-   python cpu_scheduler.py
+3. Run the application:
+   ```
+   python cpuscheduler.py
    ```
 
-## 📖 How to Use
+## 🛠️ Usage
 
-### 1. Add Process Details
-- Enter process ID, arrival time, burst time, and priority
-- Click "Add Process" to include in the simulation
+1. **Adding Processes**:
+   - Enter the Process ID, Arrival Time, Burst Time, and Priority
+   - Click "Add Process" to add it to the table
 
-### 2. Select Algorithm
-- Choose from the dropdown menu
-- For Round Robin, set your desired time quantum
+2. **Selecting a Scheduling Algorithm**:
+   - Choose from the dropdown menu (FCFS, SJF, SRTF, Round Robin, Priority)
+   - For Round Robin, specify a Time Quantum
 
-### 3. Run Simulation
-- Click "Run Scheduler" to execute
-- View the scheduling visualization in the Gantt chart
+3. **Running the Scheduler**:
+   - Click "Run Scheduler" to execute the selected algorithm
+   - View the Gantt chart and performance metrics below
 
-### 4. Analyze Results
-- Review performance metrics:
-  - Average Waiting Time
-  - Average Turnaround Time
-  - CPU Utilization
-  - Throughput
-- Examine per-process statistics in the detailed table
+4. **Managing Processes**:
+   - Select a process and click "Delete" to remove it
+   - Click "Reset" to clear all processes
 
-## 📊 Performance Metrics Explained
+## 🧮 Algorithms Explained
 
-| Metric | Description |
-|--------|-------------|
-| **Average Waiting Time** | Mean time processes spend in the ready queue |
-| **Average Turnaround Time** | Mean time from arrival to completion |
-| **CPU Utilization** | Percentage of time CPU is actively processing |
-| **Throughput** | Number of processes completed per unit time |
+- **FCFS**: First-Come-First-Serve - Non-preemptive, processes scheduled in arrival order
+- **SJF**: Shortest Job First - Non-preemptive, processes with shortest burst time first
+- **SRTF**: Shortest Remaining Time First - Preemptive version of SJF
+- **Round Robin**: Time-sliced scheduling with a quantum
+- **Priority**: Non-preemptive scheduling based on priority values (lower number = higher priority)
 
-## Algorithm Comparison
+## 📊 Performance Metrics
 
-| Algorithm | Preemptive | Advantages | Best For |
-|-----------|------------|------------|----------|
-| FCFS | No | Simple, easy to implement | Batch systems |
-| SJF | No | High throughput | Known burst times |
-| SRTF | Yes | Optimal average waiting time | Interactive systems |
-| Round Robin | Yes | Fair CPU distribution | Time-sharing systems |
-| Priority | No | Important tasks first | Systems with varied task importance |
+- **Average Waiting Time**: Average time processes spend waiting in the ready queue
+- **Average Turnaround Time**: Average time from process arrival to completion
+- **CPU Utilization**: Percentage of time the CPU is busy processing
+- **Throughput**: Number of processes completed per unit time
 
-## Project Structure
+## 📝 Note
 
-```
-cpuScheduler/
-├── cpu_scheduler.py    # Main application file
-├── README.md           # Project documentation
-├── screenshot.png      # Application screenshot
-└── LICENSE             # License information
-```
+Currently, all code is contained in a single file. A proper code file structure will be implemented in upcoming updates.
 
-## 👥 Contributing
+## 📸 Screenshots
 
-Contributions are welcome! Here's how you can help:
+[Screenshots will be added here]
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/improvement`)
-3. Commit your changes (`git commit -m 'Add some improvement'`)
-4. Push to the branch (`git push origin feature/improvement`)
+## 🔜 Future Enhancements
+
+- Improved code organization with proper file structure
+- Additional scheduling algorithms (MFQ, Lottery Scheduling)
+- Export functionality for metrics and charts
+- Animation of process execution
+- Batch process import/generation
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
+## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## 📞 Contact
 
-- Operating Systems theory for the algorithm implementations
-- The tkinter and matplotlib communities
-- All contributors and users of this educational tool
+Kartik - [@kartik-srvt147](https://github.com/kartik-srvt147)
 
----
-
-<p align="center">
-  Made with ❤️ for OS enthusiasts and Computer Science students
-</p>
-
-<p align="center">
-  <a href="https://github.com/yourusername">GitHub</a> •
-  <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-</p>
+Project Link: [https://github.com/kartik-srvt147/cpuScheduler.py](https://github.com/kartik-srvt147/cpuScheduler.py)
