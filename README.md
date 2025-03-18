@@ -2,7 +2,7 @@
 
 A visual, interactive CPU scheduling algorithm simulator built with Python and Tkinter.
 
-![GitHub](https://img.shields.io/github/license/kartik-srvt147/cpuScheduler.py)
+![GitHub](https://img.shields.io/github/license/kartik-srvt147/schedule.py)
 ![Python](https://img.shields.io/badge/python-3.6+-blue.svg)
 
 ## 📋 Overview
