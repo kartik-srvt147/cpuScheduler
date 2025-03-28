@@ -1,4 +1,4 @@
-# 🖥️ CPU Scheduler Simulator
+# 🖥️ Realtime CPU Scheduler Simulator
 
 A visual, interactive CPU scheduling algorithm simulator built with Python and Tkinter.
 
