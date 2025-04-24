@@ -5,6 +5,9 @@ from ttkbootstrap.constants import *
 from controllers.scheduler import run_scheduling_algorithm
 from visualization.gantt_chart import create_gantt_chart
 from visualization.metrics_display import display_metrics
+# Import the new comparison functionality
+from algorithms.comparison import compare_algorithms
+from visualization.comparison_display import create_comparison_window
 
 def create_ui(root):
     """
@@ -41,6 +44,7 @@ def create_ui(root):
     frame_table = ttk.Frame(content_frame)
     frame_controls = ttk.Frame(content_frame)
     frame_chart = ttk.Frame(content_frame)
+    frame_chart.configure(height=300)
     frame_metrics = ttk.Frame(content_frame)
     frame_explanation = ttk.Frame(content_frame)
 
@@ -54,7 +58,7 @@ def create_ui(root):
     frame_explanation.pack(pady=10, padx=10, fill="x")
 
     # Create title
-    ttk.Label(frame_title, text="CPU Scheduler", font=("Arial", 16)).pack()
+    ttk.Label(frame_title, text="Realtime CPU Scheduler", font=("Arial", 16)).pack()
 
     # Create input fields
     entry_pid = ttk.Entry(frame_input, width=5)
@@ -143,6 +147,34 @@ def create_ui(root):
             
         except Exception as e:
             messagebox.showerror("Error", f"Invalid input: {e}")
+    
+    # Function to compare all scheduling algorithms
+    def compare_algorithms_action():
+        try:
+            processes = []
+            for row in table.get_children():
+                values = table.item(row)['values']
+                processes.append({
+                    'pid': int(values[0]), 
+                    'arrival': int(values[1]), 
+                    'burst': int(values[2]), 
+                    'priority': int(values[3])
+                })
+            
+            if not processes:
+                messagebox.showerror("Error", "No processes to compare. Please add some processes first.")
+                return
+                
+            quantum = int(time_quantum.get()) if time_quantum.get() else 2
+            
+            # Run comparison
+            comparison_results = compare_algorithms(processes, quantum)
+            
+            # Show comparison window
+            create_comparison_window(root, comparison_results)
+            
+        except Exception as e:
+            messagebox.showerror("Error", f"Comparison failed: {e}")
 
     # Add controls
     ttk.Button(frame_input, text="Add Process", command=add_process, bootstyle=INFO).grid(row=0, column=8, padx=5)
@@ -158,6 +190,14 @@ def create_ui(root):
     
     # Run button
     ttk.Button(frame_controls, text="Run Scheduler", command=calculate_scheduling, bootstyle=INFO).pack(side="left", padx=5)
+    
+    # Add comparison button
+    ttk.Button(
+        frame_controls, 
+        text="Compare All Algorithms", 
+        command=compare_algorithms_action,
+        bootstyle=SUCCESS
+    ).pack(side="left", padx=5)
 
     # Add explanation
     explanation_text = """
